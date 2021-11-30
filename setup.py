@@ -25,7 +25,7 @@ with open('README.md', 'r') as f:
 
 setup(
     name='sepbit.sistamapy',
-    version='1.0.0',
+    version='1.0.1',
     long_description_content_type='text/markdown',
     description='Simple statuses Mastodon for Python',
     long_description=README,
