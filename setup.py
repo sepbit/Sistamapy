@@ -26,6 +26,7 @@ with open('README.md', 'r') as f:
 setup(
     name='sepbit.sistamapy',
     version='1.0.0',
+    long_description_content_type='text/markdown',
     description='Simple statuses Mastodon for Python',
     long_description=README,
     license='GPL-3.0-or-later',
@@ -46,8 +47,7 @@ setup(
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: GNU General Public License v3 \
-        or later (GPLv3+)',
+        'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: PyPy'

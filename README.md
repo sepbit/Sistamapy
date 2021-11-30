@@ -27,7 +27,7 @@ This is minimal example, see [statuses](https://docs.joinmastodon.org/methods/st
 ``` python
 from sepbit.sistamapy.statuses import Statuses
 
-self.toot = Statuses(
+toot = Statuses(
     'mastodon.social',
     'TOKEN'
 )
