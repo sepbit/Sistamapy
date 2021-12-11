@@ -18,7 +18,7 @@ $ pip install sepbit.sistamapy
 
 # Credentials
 
-In the [Mastodon](https://joinmastodon.org) account, create an app with `write:statuses` permission
+In the [Mastodon](https://joinmastodon.org) account, create an app with `read:statuses` and `write:statuses` permission
 
 ## Usage
 
