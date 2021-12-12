@@ -33,6 +33,13 @@ test:
 deploy:
   stage: deploy
   extends: .prepare
+  only:
+    refs:
+      - main
+  variables:
+    BOM_SERVER: "$BOM_SERVER"
+    BOM_KEY: "$BOM_KEY"
+    BOM_PROJECT: "$BOM_PROJECT"
   before_script:
     - python -m venv env
     - source env/bin/activate
