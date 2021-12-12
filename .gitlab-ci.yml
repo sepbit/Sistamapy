@@ -1,23 +1,45 @@
+stages:
+  - test
+  - deploy
+
 include:
   - template: Security/SAST.gitlab-ci.yml
   - template: Security/Dependency-Scanning.gitlab-ci.yml
 
-test:
+.prepare:
+  stage: .prepare
   image: python:latest
-  variables:
-    INSTANCE: "$INSTANCE"
-    TOKEN: "$TOKEN"
   cache:
     paths:
       - env/
   before_script:
     - python --version
     - pip --version
+
+test:
+  stage: test
+  extends: .prepare
+  variables:
+    INSTANCE: "$INSTANCE"
+    TOKEN: "$TOKEN"
+  before_script:
     - python -m venv env
     - source env/bin/activate
     - pip install -r requirements.txt
     - pip install .
   script:
     - tox
+
+deploy:
+  stage: deploy
+  extends: .prepare
+  before_script:
+    - python -m venv env
+    - source env/bin/activate
+    - pip install setuptools
+    - pip install wheel
     - pip install cyclonedx-bom
+    - pip install .
+  script:
     - cyclonedx-bom -e -o - > bom.xml
+    - curl -X "POST" "$BOM_SERVER" -H "Content-Type:multipart/form-data" -H "X-Api-Key:$BOM_KEY" -F "project=$BOM_PROJECT" -F "bom=@bom.xml"
