@@ -46,7 +46,7 @@ Execução de testes e verificar a cobertura de código
 
 ``` bash
 $ source ./env/bin/activate
-$ pip install -r requeriments.txt
+$ pip install -r requirements-dev.txt
 $ tox 
 ```
 

@@ -19,3 +19,5 @@ test:
     - pip install .
   script:
     - tox
+    - pip install cyclonedx-bom
+    - cyclonedx-bom -e -o - > bom.xml

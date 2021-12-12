@@ -38,7 +38,7 @@ setup(
     url='https://gitlab.com/sepbit/sistamapy',
     packages=['sepbit.sistamapy'],
     python_requires='~=3.9',
-    install_requires=['setuptools'],
+    install_requires=['setuptools', 'wheel'],
     extras_require={
         'dev': ['check-manifest'],
         'test': ['coverage'],
